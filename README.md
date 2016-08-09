@@ -1,6 +1,6 @@
 # PageControls
 
-[![CI Status](http://img.shields.io/travis/Kyle Zaragoza/PageControls.svg?style=flat)](https://travis-ci.org/Kyle Zaragoza/PageControls)
+[![CI Status](http://img.shields.io/travis/popwarsweet/PageControls.svg?style=flat)](https://travis-ci.org/popwarsweet/PageControls)
 [![Version](https://img.shields.io/cocoapods/v/PageControls.svg?style=flat)](http://cocoapods.org/pods/PageControls)
 [![License](https://img.shields.io/cocoapods/l/PageControls.svg?style=flat)](http://cocoapods.org/pods/PageControls)
 [![Platform](https://img.shields.io/cocoapods/p/PageControls.svg?style=flat)](http://cocoapods.org/pods/PageControls)

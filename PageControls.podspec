@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'PageControls'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of PageControls.'
+  s.summary          = 'A selection of custom PageControls.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+This is a selection of custom page controls to replace UIPageControl, inspired by a dribbble found here: https://dribbble.com/shots/2578447-Page-Control-Indicator-Transitions-Collection
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/PageControls'
+  s.homepage         = 'https://github.com/popwarsweet/PageControls'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Kyle Zaragoza' => 'popwarsweet@gmail.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/PageControls.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/popwarsweet/PageControls.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
