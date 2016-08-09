@@ -5,6 +5,11 @@
 [![License](https://img.shields.io/cocoapods/l/PageControls.svg?style=flat)](http://cocoapods.org/pods/PageControls)
 [![Platform](https://img.shields.io/cocoapods/p/PageControls.svg?style=flat)](http://cocoapods.org/pods/PageControls)
 
+This is a selection of custom page controls to replace UIPageControl, inspired by a dribbble found [here]( https://dribbble.com/shots/2578447-Page-Control-Indicator-Transitions-Collection).
+
+## Demo
+<img src="https://github.com/popwarsweet/JellySlider/blob/master/demo.gif" width="600">
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
