@@ -14,8 +14,6 @@ This is a selection of custom page controls to replace UIPageControl, inspired b
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
-
 ## Installation
 
 PageControls is available through [CocoaPods](http://cocoapods.org). To install
