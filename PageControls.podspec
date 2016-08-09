@@ -31,7 +31,23 @@ This is a selection of custom page controls to replace UIPageControl, inspired b
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'PageControls/Classes/**/*'
-  
+
+  spec.subspec 'FilledPageControl' do |filledPageControl|
+    filledPageControl = 'Classes/FilledPageControl.swift'
+  end
+
+  spec.subspec 'PillPageControl' do |pillPageControl|
+    pillPageControl = 'Classes/PillPageControl.swift'
+  end
+
+  spec.subspec 'ScrollingPageControl' do |scrollingPageControl|
+    scrollingPageControl = 'Classes/ScrollingPageControl.swift'
+  end
+
+  spec.subspec 'SnakePageControl' do |snakePageControl|
+    snakePageControl = 'Classes/SnakePageControl.swift'
+  end
+
   # s.resource_bundles = {
   #   'PageControls' => ['PageControls/Assets/*.png']
   # }
