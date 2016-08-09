@@ -8,39 +8,39 @@
 
 import UIKit
 
-class ScrollingPageControl: UIView {
+public class ScrollingPageControl: UIView {
     
     // MARK: - PageControl
     
-    @IBInspectable var pageCount: Int = 0 {
+    @IBInspectable public var pageCount: Int = 0 {
         didSet {
             updateNumberOfPages(pageCount)
         }
     }
-    @IBInspectable var progress: CGFloat = 0 {
+    @IBInspectable public var progress: CGFloat = 0 {
         didSet {
             layoutFor(progress)
         }
     }
-    var currentPage: Int {
+    public var currentPage: Int {
         return Int(round(progress))
     }
     
     
     // MARK: - Appearance
     
-    @IBInspectable var activeTint: UIColor = UIColor.whiteColor() {
+    @IBInspectable public var activeTint: UIColor = UIColor.whiteColor() {
         didSet {
             ringLayer.borderColor = self.activeTint.CGColor
             activeLayersContainer.sublayers?.forEach() { $0.backgroundColor = activeTint.CGColor }
         }
     }
-    @IBInspectable var inactiveTint: UIColor = UIColor(white: 1, alpha: 0.3) {
+    @IBInspectable public var inactiveTint: UIColor = UIColor(white: 1, alpha: 0.3) {
         didSet {
             inactiveLayersContainer.sublayers?.forEach() { $0.backgroundColor = inactiveTint.CGColor }
         }
     }
-    @IBInspectable var indicatorPadding: CGFloat = 10 {
+    @IBInspectable public var indicatorPadding: CGFloat = 10 {
         didSet {
             if let sublayers = inactiveLayersContainer.sublayers {
                 layoutPageIndicators(sublayers, container: inactiveLayersContainer)
@@ -50,7 +50,7 @@ class ScrollingPageControl: UIView {
             }
         }
     }
-    @IBInspectable var ringRadius: CGFloat = 10 {
+    @IBInspectable public var ringRadius: CGFloat = 10 {
         didSet {
             // resize view to fit ring
             self.sizeToFit()
@@ -62,7 +62,7 @@ class ScrollingPageControl: UIView {
             center(ringLayer)
         }
     }
-    @IBInspectable var indicatorRadius: CGFloat = 5 {
+    @IBInspectable public var indicatorRadius: CGFloat = 5 {
         didSet {
             if let sublayers = inactiveLayersContainer.sublayers {
                 layoutPageIndicators(sublayers, container: inactiveLayersContainer)
@@ -149,7 +149,7 @@ class ScrollingPageControl: UIView {
         addRequiredLayers()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         addRequiredLayers()
     }
@@ -244,17 +244,17 @@ class ScrollingPageControl: UIView {
         container.frame = CGRect(x: 0, y: 0, width: layerFrame.origin.x, height: ringLayer.bounds.height)
     }
     
-    override func intrinsicContentSize() -> CGSize {
+    override public func intrinsicContentSize() -> CGSize {
         return sizeThatFits(CGSize.zero)
     }
     
-    override func sizeThatFits(size: CGSize) -> CGSize {
+    override public func sizeThatFits(size: CGSize) -> CGSize {
         let pageCountWidth = pageCount + (pageCount - 1)
         return CGSize(width: CGFloat(pageCountWidth) * indicatorDiameter + CGFloat(pageCountWidth - 1) * indicatorPadding,
                       height: ringDiameter)
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         // layout containers
         inactiveLayersContainer.frame = self.bounds

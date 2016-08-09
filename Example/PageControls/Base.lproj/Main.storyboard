@@ -1,25 +1,106 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PageControls_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="oiH-qq-h3E" customClass="SnakePageControl" customModule="PageControls">
+                                <rect key="frame" x="67" y="183.5" width="240" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="pageCount">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="tqI-F8-GVn" customClass="FilledPageControl" customModule="PageControls">
+                                <rect key="frame" x="67" y="283.5" width="240" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inactiveRingWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="pageCount">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="BZd-o2-SvV" customClass="PillPageControl" customModule="PageControls">
+                                <rect key="frame" x="67" y="383.5" width="240" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="pageCount">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="qBZ-UF-9VG" customClass="ScrollingPageControl" customModule="PageControls">
+                                <rect key="frame" x="67" y="483.5" width="240" height="44"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="pageCount">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="ringRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorPadding">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="I5x-X4-qLq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tqI-F8-GVn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.85" id="1zF-nh-HbB"/>
+                            <constraint firstItem="qBZ-UF-9VG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.45" id="2Vb-Sg-hNP"/>
+                            <constraint firstItem="BZd-o2-SvV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.15" id="9Nr-cV-HLC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I5x-X4-qLq" secondAttribute="bottom" id="Dqw-Ff-iQ3"/>
+                            <constraint firstItem="oiH-qq-h3E" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.55" id="Ebi-n0-iDv"/>
+                            <constraint firstItem="tqI-F8-GVn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LZz-Xd-U9d"/>
+                            <constraint firstItem="I5x-X4-qLq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PYR-P4-b4S"/>
+                            <constraint firstItem="qBZ-UF-9VG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Paq-Lq-5hH"/>
+                            <constraint firstItem="oiH-qq-h3E" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h4P-IZ-gd7"/>
+                            <constraint firstAttribute="trailing" secondItem="I5x-X4-qLq" secondAttribute="trailing" id="orb-vx-RFQ"/>
+                            <constraint firstItem="I5x-X4-qLq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="saT-UL-rmX"/>
+                            <constraint firstItem="BZd-o2-SvV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sqn-U3-lbs"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="filledPageControl" destination="tqI-F8-GVn" id="brn-31-Gna"/>
+                        <outlet property="pillPageControl" destination="BZd-o2-SvV" id="JRp-oe-Z3X"/>
+                        <outlet property="scrollView" destination="I5x-X4-qLq" id="MRT-IV-0Fw"/>
+                        <outlet property="scrollingPageControl" destination="qBZ-UF-9VG" id="pqI-O4-Xsd"/>
+                        <outlet property="snakePageControl" destination="oiH-qq-h3E" id="qg1-8T-Zyj"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="316.5" y="389.5"/>
         </scene>
     </scenes>
 </document>

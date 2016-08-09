@@ -4,8 +4,5 @@ target 'PageControls_Example' do
   pod 'PageControls', :path => '../'
 
   target 'PageControls_Tests' do
-    inherit! :search_paths
-
-    
   end
 end

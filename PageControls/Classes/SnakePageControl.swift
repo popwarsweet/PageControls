@@ -8,43 +8,43 @@
 
 import UIKit
 
-class SnakePageControl: UIView {
+public class SnakePageControl: UIView {
     
     // MARK: - PageControl
     
-    @IBInspectable var pageCount: Int = 0 {
+    @IBInspectable public var pageCount: Int = 0 {
         didSet {
             updateNumberOfPages(pageCount)
         }
     }
-    @IBInspectable var progress: CGFloat = 0 {
+    @IBInspectable public var progress: CGFloat = 0 {
         didSet {
             layoutActivePageIndicator(progress)
         }
     }
-    var currentPage: Int {
+    public var currentPage: Int {
         return Int(round(progress))
     }
     
     
     // MARK: - Appearance
     
-    @IBInspectable var activeTint: UIColor = UIColor.whiteColor() {
+    @IBInspectable public var activeTint: UIColor = UIColor.whiteColor() {
         didSet {
             activeLayer.backgroundColor = activeTint.CGColor
         }
     }
-    @IBInspectable var inactiveTint: UIColor = UIColor(white: 1, alpha: 0.3) {
+    @IBInspectable public var inactiveTint: UIColor = UIColor(white: 1, alpha: 0.3) {
         didSet {
             inactiveLayers.forEach() { $0.backgroundColor = inactiveTint.CGColor }
         }
     }
-    @IBInspectable var indicatorPadding: CGFloat = 10 {
+    @IBInspectable public var indicatorPadding: CGFloat = 10 {
         didSet {
             layoutInactivePageIndicators(inactiveLayers)
         }
     }
-    @IBInspectable var indicatorRadius: CGFloat = 5 {
+    @IBInspectable public var indicatorRadius: CGFloat = 5 {
         didSet {
             layoutInactivePageIndicators(inactiveLayers)
         }
@@ -115,11 +115,11 @@ class SnakePageControl: UIView {
         }
     }
     
-    override func intrinsicContentSize() -> CGSize {
+    override public func intrinsicContentSize() -> CGSize {
         return sizeThatFits(CGSize.zero)
     }
     
-    override func sizeThatFits(size: CGSize) -> CGSize {
+    override public func sizeThatFits(size: CGSize) -> CGSize {
         return CGSize(width: CGFloat(inactiveLayers.count) * indicatorDiameter + CGFloat(inactiveLayers.count - 1) * indicatorPadding,
                       height: indicatorDiameter)
     }

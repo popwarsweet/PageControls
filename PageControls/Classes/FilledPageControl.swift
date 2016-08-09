@@ -8,43 +8,43 @@
 
 import UIKit
 
-class FilledPageControl: UIView {
+public class FilledPageControl: UIView {
     
     // MARK: - PageControl
     
-    @IBInspectable var pageCount: Int = 0 {
+    @IBInspectable public var pageCount: Int = 0 {
         didSet {
             updateNumberOfPages(pageCount)
         }
     }
-    @IBInspectable var progress: CGFloat = 0 {
+    @IBInspectable public var progress: CGFloat = 0 {
         didSet {
             updateActivePageIndicatorMasks(progress)
         }
     }
-    var currentPage: Int {
+    public var currentPage: Int {
         return Int(round(progress))
     }
     
     
     // MARK: - Appearance
     
-    override var tintColor: UIColor! {
+    override public var tintColor: UIColor! {
         didSet {
             inactiveLayers.forEach() { $0.backgroundColor = tintColor.CGColor }
         }
     }
-    @IBInspectable var inactiveRingWidth: CGFloat = 1 {
+    @IBInspectable public var inactiveRingWidth: CGFloat = 1 {
         didSet {
             updateActivePageIndicatorMasks(progress)
         }
     }
-    @IBInspectable var indicatorPadding: CGFloat = 10 {
+    @IBInspectable public var indicatorPadding: CGFloat = 10 {
         didSet {
             layoutPageIndicators(inactiveLayers)
         }
     }
-    @IBInspectable var indicatorRadius: CGFloat = 5 {
+    @IBInspectable public var indicatorRadius: CGFloat = 5 {
         didSet {
             layoutPageIndicators(inactiveLayers)
         }
@@ -130,11 +130,11 @@ class FilledPageControl: UIView {
         }
     }
     
-    override func intrinsicContentSize() -> CGSize {
+    override public func intrinsicContentSize() -> CGSize {
         return sizeThatFits(CGSize.zero)
     }
     
-    override func sizeThatFits(size: CGSize) -> CGSize {
+    override public func sizeThatFits(size: CGSize) -> CGSize {
         let layerDiameter = indicatorRadius * 2
         return CGSize(width: CGFloat(inactiveLayers.count) * layerDiameter + CGFloat(inactiveLayers.count - 1) * indicatorPadding,
                       height: layerDiameter)
