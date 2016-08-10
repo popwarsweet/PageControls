@@ -33,19 +33,19 @@ This is a selection of custom page controls to replace UIPageControl, inspired b
   s.source_files = 'PageControls/Classes/**/*'
 
   s.subspec 'FilledPageControl' do |filledPageControl|
-    filledPageControl.source_files = 'Classes/FilledPageControl.swift'
+    filledPageControl.source_files = 'Classes/FilledPageControl.*'
   end
 
   s.subspec 'PillPageControl' do |pillPageControl|
-    pillPageControl.source_files = 'Classes/PillPageControl.swift'
+    pillPageControl.source_files = 'Classes/PillPageControl.*'
   end
 
   s.subspec 'ScrollingPageControl' do |scrollingPageControl|
-    scrollingPageControl.source_files = 'Classes/ScrollingPageControl.swift'
+    scrollingPageControl.source_files = 'Classes/ScrollingPageControl.*'
   end
 
   s.subspec 'SnakePageControl' do |snakePageControl|
-    snakePageControl.source_files = 'Classes/SnakePageControl.swift'
+    snakePageControl.source_files = 'Classes/SnakePageControl.*'
   end
 
   # s.resource_bundles = {
