@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class PillPageControl: UIView {
+@IBDesignable public class PillPageControl: UIView {
     
     // MARK: - PageControl
     

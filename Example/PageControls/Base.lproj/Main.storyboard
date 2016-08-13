@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,8 +18,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="oiH-qq-h3E" customClass="SnakePageControl" customModule="PageControls">
-                                <rect key="frame" x="67" y="183.5" width="240" height="44"/>
+                                <rect key="frame" x="159" y="176" width="57" height="10"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="Rff-nG-817"/>
+                                    <constraint firstAttribute="width" constant="57" id="RpO-K9-7ye"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="pageCount">
                                         <integer key="value" value="3"/>
@@ -28,9 +31,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="tqI-F8-GVn" customClass="FilledPageControl" customModule="PageControls">
-                                <rect key="frame" x="67" y="283.5" width="240" height="44"/>
+                                <rect key="frame" x="160" y="244" width="54" height="14"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="XBy-cw-GhA"/>
+                                    <constraint firstAttribute="width" constant="54" id="cCp-NP-o02"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="inactiveRingWidth">
                                         <real key="value" value="1"/>
@@ -41,8 +48,12 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="BZd-o2-SvV" customClass="PillPageControl" customModule="PageControls">
-                                <rect key="frame" x="67" y="383.5" width="240" height="44"/>
+                                <rect key="frame" x="147" y="309" width="80" height="8"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="RQp-ny-CBW"/>
+                                    <constraint firstAttribute="height" constant="8" id="fbY-bq-zdE"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="pageCount">
                                         <integer key="value" value="3"/>
@@ -50,7 +61,11 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="qBZ-UF-9VG" customClass="ScrollingPageControl" customModule="PageControls">
-                                <rect key="frame" x="67" y="483.5" width="240" height="44"/>
+                                <rect key="frame" x="142" y="356" width="90" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="4VK-Rp-Byt"/>
+                                    <constraint firstAttribute="height" constant="20" id="ggc-Ua-Anb"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="pageCount">
                                         <integer key="value" value="3"/>
@@ -75,18 +90,18 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tqI-F8-GVn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.85" id="1zF-nh-HbB"/>
-                            <constraint firstItem="qBZ-UF-9VG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.45" id="2Vb-Sg-hNP"/>
-                            <constraint firstItem="BZd-o2-SvV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.15" id="9Nr-cV-HLC"/>
+                            <constraint firstItem="tqI-F8-GVn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7rB-af-EBo"/>
+                            <constraint firstItem="tqI-F8-GVn" firstAttribute="top" secondItem="oiH-qq-h3E" secondAttribute="bottom" constant="58" id="8TZ-8D-z8o"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I5x-X4-qLq" secondAttribute="bottom" id="Dqw-Ff-iQ3"/>
-                            <constraint firstItem="oiH-qq-h3E" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.55" id="Ebi-n0-iDv"/>
-                            <constraint firstItem="tqI-F8-GVn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LZz-Xd-U9d"/>
+                            <constraint firstItem="oiH-qq-h3E" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hfy-JJ-moD"/>
+                            <constraint firstItem="BZd-o2-SvV" firstAttribute="top" secondItem="tqI-F8-GVn" secondAttribute="bottom" constant="51" id="Jls-Xl-1e7"/>
+                            <constraint firstItem="qBZ-UF-9VG" firstAttribute="top" secondItem="BZd-o2-SvV" secondAttribute="bottom" constant="39" id="Mdb-jn-fM6"/>
                             <constraint firstItem="I5x-X4-qLq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PYR-P4-b4S"/>
-                            <constraint firstItem="qBZ-UF-9VG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Paq-Lq-5hH"/>
-                            <constraint firstItem="oiH-qq-h3E" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h4P-IZ-gd7"/>
+                            <constraint firstItem="oiH-qq-h3E" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="156" id="VgP-1F-Tlt"/>
+                            <constraint firstItem="qBZ-UF-9VG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-0.5" id="fa2-1J-cMe"/>
                             <constraint firstAttribute="trailing" secondItem="I5x-X4-qLq" secondAttribute="trailing" id="orb-vx-RFQ"/>
                             <constraint firstItem="I5x-X4-qLq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="saT-UL-rmX"/>
-                            <constraint firstItem="BZd-o2-SvV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sqn-U3-lbs"/>
+                            <constraint firstItem="BZd-o2-SvV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vy8-1y-dli"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

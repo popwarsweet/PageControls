@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SnakePageControl: UIView {
+@IBDesignable public class SnakePageControl: UIView {
     
     // MARK: - PageControl
     
