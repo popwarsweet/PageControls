@@ -1,0 +1,6 @@
+framework module PageControls {
+  umbrella header "PageControls-umbrella.h"
+
+  export *
+  module * { export * }
+}
