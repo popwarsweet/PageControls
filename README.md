@@ -34,9 +34,14 @@ pod "PageControls/PillPageControl"
 pod "PageControls/ScrollingPageControl"
 ```
 
+## Manual Installation
+
+Each page control file is standalone and can be installed individually by copy/pasting the respective file into your project.
+
 ## Author
 
 Kyle Zaragoza, popwarsweet@gmail.com
+Twitter: [@KyleZaragoza](https://twitter.com/kylezaragoza)
 
 ## License
 
