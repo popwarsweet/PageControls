@@ -1,6 +1,0 @@
-framework module Pods_PageControls_Example {
-  umbrella header "Pods-PageControls_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}
