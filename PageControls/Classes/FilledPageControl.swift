@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class FilledPageControl: UIView {
+@IBDesignable public class FilledPageControl: UIView {
     
     // MARK: - PageControl
     

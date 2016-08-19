@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="oiH-qq-h3E" customClass="SnakePageControl" customModule="PageControls">
-                                <rect key="frame" x="67" y="183.5" width="240" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oiH-qq-h3E" customClass="SnakePageControl" customModule="PageControls">
+                                <rect key="frame" x="162" y="183.5" width="50" height="10"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="pageCount">
@@ -27,8 +27,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="tqI-F8-GVn" customClass="FilledPageControl" customModule="PageControls">
-                                <rect key="frame" x="67" y="283.5" width="240" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqI-F8-GVn" customClass="FilledPageControl" customModule="PageControls">
+                                <rect key="frame" x="162" y="283.5" width="50" height="10"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -40,8 +40,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="BZd-o2-SvV" customClass="PillPageControl" customModule="PageControls">
-                                <rect key="frame" x="67" y="383.5" width="240" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZd-o2-SvV" customClass="PillPageControl" customModule="PageControls">
+                                <rect key="frame" x="150" y="383.5" width="74" height="2.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="pageCount">
@@ -49,8 +49,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="qBZ-UF-9VG" customClass="ScrollingPageControl" customModule="PageControls">
-                                <rect key="frame" x="67" y="483.5" width="240" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBZ-UF-9VG" customClass="ScrollingPageControl" customModule="PageControls">
+                                <rect key="frame" x="142.5" y="483.5" width="90" height="20"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="pageCount">
                                         <integer key="value" value="3"/>

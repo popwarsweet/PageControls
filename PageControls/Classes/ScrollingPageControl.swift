@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ScrollingPageControl: UIView {
+@IBDesignable public class ScrollingPageControl: UIView {
     
     // MARK: - PageControl
     
