@@ -73,13 +73,13 @@ import UIKit
         }
     }
     
-    private var indicatorDiameter: CGFloat {
+    fileprivate var indicatorDiameter: CGFloat {
         return indicatorRadius * 2
     }
-    private var ringDiameter: CGFloat {
+    fileprivate var ringDiameter: CGFloat {
         return ringRadius * 2
     }
-    private var inactiveLayersContainer: CALayer = {
+    fileprivate var inactiveLayersContainer: CALayer = {
         let layer = CALayer()
         layer.backgroundColor = UIColor.clear.cgColor
         layer.actions = [
@@ -88,7 +88,7 @@ import UIKit
             "position": NSNull()]
         return layer
     }()
-    private var activeLayersContainer: CALayer = {
+    fileprivate var activeLayersContainer: CALayer = {
         let layer = CALayer()
         layer.backgroundColor = UIColor.clear.cgColor
         layer.actions = [
@@ -97,7 +97,7 @@ import UIKit
             "position": NSNull()]
         return layer
     }()
-    private lazy var ringLayer: CALayer = { [unowned self] in
+    fileprivate lazy var ringLayer: CALayer = { [unowned self] in
         let layer = CALayer()
         layer.frame = CGRect(origin: CGPoint.zero,
                              size: CGSize(width: self.ringDiameter, height: self.ringDiameter))
@@ -111,7 +111,7 @@ import UIKit
             "position": NSNull()]
         return layer
     }()
-    private lazy var inactiveLayerMask: CAShapeLayer = { [unowned self] in
+    fileprivate lazy var inactiveLayerMask: CAShapeLayer = { [unowned self] in
         let layer = CAShapeLayer()
         layer.fillRule = kCAFillRuleEvenOdd
         layer.frame = CGRect(origin: CGPoint.zero,
@@ -122,7 +122,7 @@ import UIKit
             "position": NSNull()]
         return layer
     }()
-    private lazy var activeLayerMask: CAShapeLayer = { [unowned self] in
+    fileprivate lazy var activeLayerMask: CAShapeLayer = { [unowned self] in
         let layer = CAShapeLayer()
         layer.frame = CGRect(origin: CGPoint.zero,
                              size: CGSize(width: self.ringDiameter, height: self.ringDiameter))
@@ -136,7 +136,7 @@ import UIKit
     
     // MARK: - Init
     
-    private func addRequiredLayers() {
+    fileprivate func addRequiredLayers() {
         self.layer.addSublayer(inactiveLayersContainer)
         self.layer.addSublayer(activeLayersContainer)
         self.layer.addSublayer(ringLayer)
@@ -157,7 +157,7 @@ import UIKit
     
     // MARK: - State Update
     
-    private func updateNumberOfPages(_ count: Int) {
+    fileprivate func updateNumberOfPages(_ count: Int) {
         // no need to update
         guard count != inactiveLayersContainer.sublayers?.count else { return }
         // reset current layout
@@ -182,7 +182,7 @@ import UIKit
         self.invalidateIntrinsicContentSize()
     }
     
-    private func pageIndicatorLayer(_ color: CGColor) -> CALayer {
+    fileprivate func pageIndicatorLayer(_ color: CGColor) -> CALayer {
         let layer = CALayer()
         layer.backgroundColor = color
         return layer
@@ -191,7 +191,7 @@ import UIKit
     
     // MARK: - Layout
     
-    private func maskPath(_ size: CGSize, progress: CGFloat, inverted: Bool) -> CGPath {
+    fileprivate func maskPath(_ size: CGSize, progress: CGFloat, inverted: Bool) -> CGPath {
         let offsetFromCenter = progress * (indicatorDiameter + indicatorPadding) - (ringRadius - indicatorRadius)
         let circleRect = CGRect(
             x: offsetFromCenter,
@@ -208,7 +208,7 @@ import UIKit
         }
     }
     
-    private func layoutFor(_ progress: CGFloat) {
+    fileprivate func layoutFor(_ progress: CGFloat) {
         // ignore if progress is outside of page indicators' bounds
         guard progress >= 0 && progress <= CGFloat(pageCount - 1) else { return }
         let offsetFromCenter = progress * (indicatorDiameter + indicatorPadding)
@@ -219,7 +219,7 @@ import UIKit
         activeLayerMask.path = maskPath(activeLayerMask.bounds.size, progress: progress, inverted: false)
     }
     
-    private func center(_ layer: CALayer) {
+    fileprivate func center(_ layer: CALayer) {
         let frame = CGRect(
             x: (self.bounds.width - layer.bounds.width)/2,
             y: (self.bounds.height - layer.bounds.height)/2,
@@ -228,7 +228,7 @@ import UIKit
         layer.frame = frame
     }
     
-    private func layoutPageIndicators(_ layers: [CALayer], container: CALayer) {
+    fileprivate func layoutPageIndicators(_ layers: [CALayer], container: CALayer) {
         let layerDiameter = indicatorRadius * 2
         var layerFrame = CGRect(
             x: 0,

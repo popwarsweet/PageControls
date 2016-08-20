@@ -50,11 +50,11 @@ import UIKit
         }
     }
     
-    private var indicatorDiameter: CGFloat {
+    fileprivate var indicatorDiameter: CGFloat {
         return indicatorRadius * 2
     }
-    private var inactiveLayers = [CALayer]()
-    private lazy var activeLayer: CALayer = { [unowned self] in
+    fileprivate var inactiveLayers = [CALayer]()
+    fileprivate lazy var activeLayer: CALayer = { [unowned self] in
         let layer = CALayer()
         layer.frame = CGRect(origin: CGPoint.zero,
                              size: CGSize(width: self.indicatorDiameter, height: self.indicatorDiameter))
@@ -70,7 +70,7 @@ import UIKit
     
     // MARK: - State Update
     
-    private func updateNumberOfPages(_ count: Int) {
+    fileprivate func updateNumberOfPages(_ count: Int) {
         // no need to update
         guard count != inactiveLayers.count else { return }
         // reset current layout
@@ -93,7 +93,7 @@ import UIKit
     
     // MARK: - Layout
     
-    private func layoutActivePageIndicator(_ progress: CGFloat) {
+    fileprivate func layoutActivePageIndicator(_ progress: CGFloat) {
         // ignore if progress is outside of page indicators' bounds
         guard progress >= 0 && progress <= CGFloat(pageCount - 1) else { return }
         let denormalizedProgress = progress * (indicatorDiameter + indicatorPadding)
@@ -105,7 +105,7 @@ import UIKit
         activeLayer.frame = newFrame
     }
     
-    private func layoutInactivePageIndicators(_ layers: [CALayer]) {
+    fileprivate func layoutInactivePageIndicators(_ layers: [CALayer]) {
         let layerDiameter = indicatorRadius * 2
         var layerFrame = CGRect(x: 0, y: 0, width: layerDiameter, height: layerDiameter)
         layers.forEach() { layer in

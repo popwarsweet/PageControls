@@ -50,8 +50,8 @@ import UIKit
         }
     }
     
-    private var inactiveLayers = [CALayer]()
-    private lazy var activeLayer: CALayer = { [unowned self] in
+    fileprivate var inactiveLayers = [CALayer]()
+    fileprivate lazy var activeLayer: CALayer = { [unowned self] in
         let layer = CALayer()
         layer.frame = CGRect(origin: CGPoint.zero,
                              size: CGSize(width: self.pillSize.width, height: self.pillSize.height))
@@ -67,7 +67,7 @@ import UIKit
     
     // MARK: - State Update
     
-    private func updateNumberOfPages(_ count: Int) {
+    fileprivate func updateNumberOfPages(_ count: Int) {
         // no need to update
         guard count != inactiveLayers.count else { return }
         // reset current layout
@@ -90,14 +90,14 @@ import UIKit
     
     // MARK: - Layout
     
-    private func layoutActivePageIndicator(_ progress: CGFloat) {
+    fileprivate func layoutActivePageIndicator(_ progress: CGFloat) {
         // ignore if progress is outside of page indicators' bounds
         guard progress >= 0 && progress <= CGFloat(pageCount - 1) else { return }
         let denormalizedProgress = progress * (pillSize.width + indicatorPadding)
         activeLayer.frame.origin.x = denormalizedProgress
     }
     
-    private func layoutInactivePageIndicators(_ layers: [CALayer]) {
+    fileprivate func layoutInactivePageIndicators(_ layers: [CALayer]) {
         var layerFrame = CGRect(origin: CGPoint.zero, size: pillSize)
         layers.forEach() { layer in
             layer.cornerRadius = layerFrame.size.height / 2

@@ -50,15 +50,15 @@ import UIKit
         }
     }
     
-    private var indicatorDiameter: CGFloat {
+    fileprivate var indicatorDiameter: CGFloat {
         return indicatorRadius * 2
     }
-    private var inactiveLayers = [CALayer]()
+    fileprivate var inactiveLayers = [CALayer]()
     
     
     // MARK: - State Update
     
-    private func updateNumberOfPages(_ count: Int) {
+    fileprivate func updateNumberOfPages(_ count: Int) {
         // no need to update
         guard count != inactiveLayers.count else { return }
         // reset current layout
@@ -79,7 +79,7 @@ import UIKit
     
     // MARK: - Layout
     
-    private func updateActivePageIndicatorMasks(forProgress progress: CGFloat) {
+    fileprivate func updateActivePageIndicatorMasks(forProgress progress: CGFloat) {
         // ignore if progress is outside of page indicators' bounds
         guard progress >= 0 && progress <= CGFloat(pageCount - 1) else { return }
 
@@ -118,7 +118,7 @@ import UIKit
         }
     }
     
-    private func layoutPageIndicators(_ layers: [CALayer]) {
+    fileprivate func layoutPageIndicators(_ layers: [CALayer]) {
         let layerDiameter = indicatorRadius * 2
         var layerFrame = CGRect(x: 0, y: 0, width: layerDiameter, height: layerDiameter)
         layers.forEach() { layer in
