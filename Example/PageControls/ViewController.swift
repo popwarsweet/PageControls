@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         scrollView.delegate = self
-        scrollView.pagingEnabled = true
+        scrollView.isPagingEnabled = true
         let contentSize = CGSize(width: scrollView.bounds.width * 3,
                                  height: scrollView.bounds.height)
         scrollView.contentSize = contentSize
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
 // MARK: - Scroll View Delegate
 
 extension ViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x / scrollView.bounds.width
         let progressInPage = scrollView.contentOffset.x - (page * scrollView.bounds.width)
         let progress = CGFloat(page) + progressInPage
