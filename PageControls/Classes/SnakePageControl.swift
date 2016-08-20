@@ -8,43 +8,43 @@
 
 import UIKit
 
-@IBDesignable public class SnakePageControl: UIView {
+@IBDesignable open class SnakePageControl: UIView {
     
     // MARK: - PageControl
     
-    @IBInspectable public var pageCount: Int = 0 {
+    @IBInspectable open var pageCount: Int = 0 {
         didSet {
             updateNumberOfPages(pageCount)
         }
     }
-    @IBInspectable public var progress: CGFloat = 0 {
+    @IBInspectable open var progress: CGFloat = 0 {
         didSet {
             layoutActivePageIndicator(progress)
         }
     }
-    public var currentPage: Int {
+    open var currentPage: Int {
         return Int(round(progress))
     }
     
     
     // MARK: - Appearance
     
-    @IBInspectable public var activeTint: UIColor = UIColor.whiteColor() {
+    @IBInspectable open var activeTint: UIColor = UIColor.white {
         didSet {
-            activeLayer.backgroundColor = activeTint.CGColor
+            activeLayer.backgroundColor = activeTint.cgColor
         }
     }
-    @IBInspectable public var inactiveTint: UIColor = UIColor(white: 1, alpha: 0.3) {
+    @IBInspectable open var inactiveTint: UIColor = UIColor(white: 1, alpha: 0.3) {
         didSet {
-            inactiveLayers.forEach() { $0.backgroundColor = inactiveTint.CGColor }
+            inactiveLayers.forEach() { $0.backgroundColor = inactiveTint.cgColor }
         }
     }
-    @IBInspectable public var indicatorPadding: CGFloat = 10 {
+    @IBInspectable open var indicatorPadding: CGFloat = 10 {
         didSet {
             layoutInactivePageIndicators(inactiveLayers)
         }
     }
-    @IBInspectable public var indicatorRadius: CGFloat = 5 {
+    @IBInspectable open var indicatorRadius: CGFloat = 5 {
         didSet {
             layoutInactivePageIndicators(inactiveLayers)
         }
@@ -58,7 +58,7 @@ import UIKit
         let layer = CALayer()
         layer.frame = CGRect(origin: CGPoint.zero,
                              size: CGSize(width: self.indicatorDiameter, height: self.indicatorDiameter))
-        layer.backgroundColor = self.activeTint.CGColor
+        layer.backgroundColor = self.activeTint.cgColor
         layer.cornerRadius = self.indicatorRadius
         layer.actions = [
             "bounds": NSNull(),
@@ -70,16 +70,16 @@ import UIKit
     
     // MARK: - State Update
     
-    private func updateNumberOfPages(count: Int) {
+    private func updateNumberOfPages(_ count: Int) {
         // no need to update
         guard count != inactiveLayers.count else { return }
         // reset current layout
         inactiveLayers.forEach() { $0.removeFromSuperlayer() }
         inactiveLayers = [CALayer]()
         // add layers for new page count
-        inactiveLayers = 0.stride(to:count, by:1).map() { _ in
+        inactiveLayers = stride(from: 0, to:count, by:1).map() { _ in
             let layer = CALayer()
-            layer.backgroundColor = self.inactiveTint.CGColor
+            layer.backgroundColor = self.inactiveTint.cgColor
             self.layer.addSublayer(layer)
             return layer
         }
@@ -93,7 +93,7 @@ import UIKit
     
     // MARK: - Layout
     
-    private func layoutActivePageIndicator(progress: CGFloat) {
+    private func layoutActivePageIndicator(_ progress: CGFloat) {
         // ignore if progress is outside of page indicators' bounds
         guard progress >= 0 && progress <= CGFloat(pageCount - 1) else { return }
         let denormalizedProgress = progress * (indicatorDiameter + indicatorPadding)
@@ -105,7 +105,7 @@ import UIKit
         activeLayer.frame = newFrame
     }
     
-    private func layoutInactivePageIndicators(layers: [CALayer]) {
+    private func layoutInactivePageIndicators(_ layers: [CALayer]) {
         let layerDiameter = indicatorRadius * 2
         var layerFrame = CGRect(x: 0, y: 0, width: layerDiameter, height: layerDiameter)
         layers.forEach() { layer in
@@ -115,11 +115,11 @@ import UIKit
         }
     }
     
-    override public func intrinsicContentSize() -> CGSize {
+    override open var intrinsicContentSize: CGSize {
         return sizeThatFits(CGSize.zero)
     }
     
-    override public func sizeThatFits(size: CGSize) -> CGSize {
+    override open func sizeThatFits(_ size: CGSize) -> CGSize {
         return CGSize(width: CGFloat(inactiveLayers.count) * indicatorDiameter + CGFloat(inactiveLayers.count - 1) * indicatorPadding,
                       height: indicatorDiameter)
     }
