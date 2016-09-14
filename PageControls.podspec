@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PageControls'
-  s.version          = '0.1.3'
+  s.version          = '1.0.0'
   s.summary          = 'A selection of custom PageControls.'
 
 # This description is used to generate tags and improve search results.
