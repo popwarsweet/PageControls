@@ -8,39 +8,39 @@
 
 import UIKit
 
-@IBDesignable public class ScrollingPageControl: UIView {
+@IBDesignable open class ScrollingPageControl: UIView {
     
     // MARK: - PageControl
     
-    @IBInspectable public var pageCount: Int = 0 {
+    @IBInspectable open var pageCount: Int = 0 {
         didSet {
             updateNumberOfPages(pageCount)
         }
     }
-    @IBInspectable public var progress: CGFloat = 0 {
+    @IBInspectable open var progress: CGFloat = 0 {
         didSet {
             layoutFor(progress)
         }
     }
-    public var currentPage: Int {
+    open var currentPage: Int {
         return Int(round(progress))
     }
     
     
     // MARK: - Appearance
     
-    @IBInspectable public var activeTint: UIColor = UIColor.whiteColor() {
+    @IBInspectable open var activeTint: UIColor = UIColor.white {
         didSet {
-            ringLayer.borderColor = self.activeTint.CGColor
-            activeLayersContainer.sublayers?.forEach() { $0.backgroundColor = activeTint.CGColor }
+            ringLayer.borderColor = self.activeTint.cgColor
+            activeLayersContainer.sublayers?.forEach() { $0.backgroundColor = activeTint.cgColor }
         }
     }
-    @IBInspectable public var inactiveTint: UIColor = UIColor(white: 1, alpha: 0.3) {
+    @IBInspectable open var inactiveTint: UIColor = UIColor(white: 1, alpha: 0.3) {
         didSet {
-            inactiveLayersContainer.sublayers?.forEach() { $0.backgroundColor = inactiveTint.CGColor }
+            inactiveLayersContainer.sublayers?.forEach() { $0.backgroundColor = inactiveTint.cgColor }
         }
     }
-    @IBInspectable public var indicatorPadding: CGFloat = 10 {
+    @IBInspectable open var indicatorPadding: CGFloat = 10 {
         didSet {
             if let sublayers = inactiveLayersContainer.sublayers {
                 layoutPageIndicators(sublayers, container: inactiveLayersContainer)
@@ -50,7 +50,7 @@ import UIKit
             }
         }
     }
-    @IBInspectable public var ringRadius: CGFloat = 10 {
+    @IBInspectable open var ringRadius: CGFloat = 10 {
         didSet {
             // resize view to fit ring
             self.sizeToFit()
@@ -62,7 +62,7 @@ import UIKit
             center(ringLayer)
         }
     }
-    @IBInspectable public var indicatorRadius: CGFloat = 5 {
+    @IBInspectable open var indicatorRadius: CGFloat = 5 {
         didSet {
             if let sublayers = inactiveLayersContainer.sublayers {
                 layoutPageIndicators(sublayers, container: inactiveLayersContainer)
@@ -73,37 +73,37 @@ import UIKit
         }
     }
     
-    private var indicatorDiameter: CGFloat {
+    fileprivate var indicatorDiameter: CGFloat {
         return indicatorRadius * 2
     }
-    private var ringDiameter: CGFloat {
+    fileprivate var ringDiameter: CGFloat {
         return ringRadius * 2
     }
-    private var inactiveLayersContainer: CALayer = {
+    fileprivate var inactiveLayersContainer: CALayer = {
         let layer = CALayer()
-        layer.backgroundColor = UIColor.clearColor().CGColor
+        layer.backgroundColor = UIColor.clear.cgColor
         layer.actions = [
             "bounds": NSNull(),
             "frame": NSNull(),
             "position": NSNull()]
         return layer
     }()
-    private var activeLayersContainer: CALayer = {
+    fileprivate var activeLayersContainer: CALayer = {
         let layer = CALayer()
-        layer.backgroundColor = UIColor.clearColor().CGColor
+        layer.backgroundColor = UIColor.clear.cgColor
         layer.actions = [
             "bounds": NSNull(),
             "frame": NSNull(),
             "position": NSNull()]
         return layer
     }()
-    private lazy var ringLayer: CALayer = { [unowned self] in
+    fileprivate lazy var ringLayer: CALayer = { [unowned self] in
         let layer = CALayer()
         layer.frame = CGRect(origin: CGPoint.zero,
                              size: CGSize(width: self.ringDiameter, height: self.ringDiameter))
-        layer.backgroundColor = UIColor.clearColor().CGColor
+        layer.backgroundColor = UIColor.clear.cgColor
         layer.cornerRadius = self.ringRadius
-        layer.borderColor = self.activeTint.CGColor
+        layer.borderColor = self.activeTint.cgColor
         layer.borderWidth = 1
         layer.actions = [
             "bounds": NSNull(),
@@ -111,7 +111,7 @@ import UIKit
             "position": NSNull()]
         return layer
     }()
-    private lazy var inactiveLayerMask: CAShapeLayer = { [unowned self] in
+    fileprivate lazy var inactiveLayerMask: CAShapeLayer = { [unowned self] in
         let layer = CAShapeLayer()
         layer.fillRule = kCAFillRuleEvenOdd
         layer.frame = CGRect(origin: CGPoint.zero,
@@ -122,7 +122,7 @@ import UIKit
             "position": NSNull()]
         return layer
     }()
-    private lazy var activeLayerMask: CAShapeLayer = { [unowned self] in
+    fileprivate lazy var activeLayerMask: CAShapeLayer = { [unowned self] in
         let layer = CAShapeLayer()
         layer.frame = CGRect(origin: CGPoint.zero,
                              size: CGSize(width: self.ringDiameter, height: self.ringDiameter))
@@ -136,7 +136,7 @@ import UIKit
     
     // MARK: - Init
     
-    private func addRequiredLayers() {
+    fileprivate func addRequiredLayers() {
         self.layer.addSublayer(inactiveLayersContainer)
         self.layer.addSublayer(activeLayersContainer)
         self.layer.addSublayer(ringLayer)
@@ -157,7 +157,7 @@ import UIKit
     
     // MARK: - State Update
     
-    private func updateNumberOfPages(count: Int) {
+    fileprivate func updateNumberOfPages(_ count: Int) {
         // no need to update
         guard count != inactiveLayersContainer.sublayers?.count else { return }
         // reset current layout
@@ -168,11 +168,11 @@ import UIKit
         var activePageIndicatorLayers = [CALayer]()
         for _ in 0..<count {
             // add inactve layers
-            let inactiveLayer = pageIndicatorLayer(self.inactiveTint.CGColor)
+            let inactiveLayer = pageIndicatorLayer(self.inactiveTint.cgColor)
             inactiveLayersContainer.addSublayer(inactiveLayer)
             inactivePageIndicatorLayers.append(inactiveLayer)
             // add actve layers
-            let activeLayer = pageIndicatorLayer(self.activeTint.CGColor)
+            let activeLayer = pageIndicatorLayer(self.activeTint.cgColor)
             activeLayersContainer.addSublayer(activeLayer)
             activePageIndicatorLayers.append(activeLayer)
         }
@@ -182,7 +182,7 @@ import UIKit
         self.invalidateIntrinsicContentSize()
     }
     
-    private func pageIndicatorLayer(color: CGColor) -> CALayer {
+    fileprivate func pageIndicatorLayer(_ color: CGColor) -> CALayer {
         let layer = CALayer()
         layer.backgroundColor = color
         return layer
@@ -191,7 +191,7 @@ import UIKit
     
     // MARK: - Layout
     
-    private func maskPath(size: CGSize, progress: CGFloat, inverted: Bool) -> CGPath {
+    fileprivate func maskPath(_ size: CGSize, progress: CGFloat, inverted: Bool) -> CGPath {
         let offsetFromCenter = progress * (indicatorDiameter + indicatorPadding) - (ringRadius - indicatorRadius)
         let circleRect = CGRect(
             x: offsetFromCenter,
@@ -201,14 +201,14 @@ import UIKit
         let circlePath = UIBezierPath(roundedRect: circleRect, cornerRadius: size.height/2)
         if inverted {
             let path = UIBezierPath(rect: CGRect(origin: CGPoint.zero, size: size))
-            path.appendPath(circlePath)
-            return path.CGPath
+            path.append(circlePath)
+            return path.cgPath
         } else {
-            return circlePath.CGPath
+            return circlePath.cgPath
         }
     }
     
-    private func layoutFor(progress: CGFloat) {
+    fileprivate func layoutFor(_ progress: CGFloat) {
         // ignore if progress is outside of page indicators' bounds
         guard progress >= 0 && progress <= CGFloat(pageCount - 1) else { return }
         let offsetFromCenter = progress * (indicatorDiameter + indicatorPadding)
@@ -219,7 +219,7 @@ import UIKit
         activeLayerMask.path = maskPath(activeLayerMask.bounds.size, progress: progress, inverted: false)
     }
     
-    private func center(layer: CALayer) {
+    fileprivate func center(_ layer: CALayer) {
         let frame = CGRect(
             x: (self.bounds.width - layer.bounds.width)/2,
             y: (self.bounds.height - layer.bounds.height)/2,
@@ -228,7 +228,7 @@ import UIKit
         layer.frame = frame
     }
     
-    private func layoutPageIndicators(layers: [CALayer], container: CALayer) {
+    fileprivate func layoutPageIndicators(_ layers: [CALayer], container: CALayer) {
         let layerDiameter = indicatorRadius * 2
         var layerFrame = CGRect(
             x: 0,
@@ -244,17 +244,17 @@ import UIKit
         container.frame = CGRect(x: 0, y: 0, width: layerFrame.origin.x, height: ringLayer.bounds.height)
     }
     
-    override public func intrinsicContentSize() -> CGSize {
+    override open var intrinsicContentSize: CGSize {
         return sizeThatFits(CGSize.zero)
     }
     
-    override public func sizeThatFits(size: CGSize) -> CGSize {
+    override open func sizeThatFits(_ size: CGSize) -> CGSize {
         let pageCountWidth = pageCount + (pageCount - 1)
         return CGSize(width: CGFloat(pageCountWidth) * indicatorDiameter + CGFloat(pageCountWidth - 1) * indicatorPadding,
                       height: ringDiameter)
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         // layout containers
         inactiveLayersContainer.frame = self.bounds
