@@ -34,6 +34,17 @@ import UIKit
             activeLayer.backgroundColor = activeTint.cgColor
         }
     }
+
+    @IBInspectable open var activeBorderColor: UIColor = UIColor(white: 0, alpha: 0.3) {
+        didSet {
+            activeLayer.borderColor = activeBorderColor.cgColor
+        }
+    }
+    @IBInspectable open var activeBorderWidth: CGFloat = 1 {
+        didSet {
+            activeLayer.borderWidth = activeBorderWidth
+        }
+    }
     @IBInspectable open var inactiveTint: UIColor = UIColor(white: 1, alpha: 0.3) {
         didSet {
             inactiveLayers.forEach() { $0.backgroundColor = inactiveTint.cgColor }
@@ -60,6 +71,8 @@ import UIKit
                              size: CGSize(width: self.indicatorDiameter, height: self.indicatorDiameter))
         layer.backgroundColor = self.activeTint.cgColor
         layer.cornerRadius = self.indicatorRadius
+        layer.borderColor = self.activeBorderColor.cgColor
+        layer.borderWidth = self.activeBorderWidth
         layer.actions = [
             "bounds": NSNull(),
             "frame": NSNull(),
