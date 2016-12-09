@@ -50,6 +50,12 @@ import UIKit
         }
     }
     
+    enum Orientation {
+        case vertical
+        case horizontal
+    }
+    var orientation: Orientation = .vertical
+    
     fileprivate var indicatorDiameter: CGFloat {
         return indicatorRadius * 2
     }
@@ -124,7 +130,12 @@ import UIKit
         layers.forEach() { layer in
             layer.cornerRadius = self.indicatorRadius
             layer.frame = layerFrame
-            layerFrame.origin.x += layerDiameter + indicatorPadding
+            let unit = layerDiameter + indicatorPadding
+            if orientation == .vertical {
+                layerFrame.origin.y += unit
+            } else if orientation == .horizontal {
+                layerFrame.origin.x += unit
+            }
         }
     }
     
@@ -134,7 +145,13 @@ import UIKit
     
     override open func sizeThatFits(_ size: CGSize) -> CGSize {
         let layerDiameter = indicatorRadius * 2
-        return CGSize(width: CGFloat(inactiveLayers.count) * layerDiameter + CGFloat(inactiveLayers.count - 1) * indicatorPadding,
-                      height: layerDiameter)
+        switch orientation {
+        case .vertical:
+            return CGSize(width: layerDiameter,
+                          height: CGFloat(inactiveLayers.count) * layerDiameter + CGFloat(inactiveLayers.count - 1) * indicatorPadding)
+        case .horizontal:
+            return CGSize(width: CGFloat(inactiveLayers.count) * layerDiameter + CGFloat(inactiveLayers.count - 1) * indicatorPadding,
+                          height: layerDiameter)
+        }
     }
 }
