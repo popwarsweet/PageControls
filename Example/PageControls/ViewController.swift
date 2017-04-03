@@ -22,6 +22,11 @@ class ViewController: UIViewController {
         
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // Update scroll view content size.
         let contentSize = CGSize(width: scrollView.bounds.width * 3,
                                  height: scrollView.bounds.height)
         scrollView.contentSize = contentSize
