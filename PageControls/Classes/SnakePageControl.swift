@@ -42,11 +42,15 @@ import UIKit
     @IBInspectable open var indicatorPadding: CGFloat = 10 {
         didSet {
             layoutInactivePageIndicators(inactiveLayers)
+            layoutActivePageIndicator(progress)
+            self.invalidateIntrinsicContentSize()
         }
     }
     @IBInspectable open var indicatorRadius: CGFloat = 5 {
         didSet {
             layoutInactivePageIndicators(inactiveLayers)
+            layoutActivePageIndicator(progress)
+            self.invalidateIntrinsicContentSize()
         }
     }
     
@@ -98,20 +102,23 @@ import UIKit
         guard progress >= 0 && progress <= CGFloat(pageCount - 1) else { return }
         let denormalizedProgress = progress * (indicatorDiameter + indicatorPadding)
         let distanceFromPage = abs(round(progress) - progress)
-        var newFrame = activeLayer.frame
-        let widthMultiplier = (1 + distanceFromPage*2)
+        let width = indicatorDiameter
+                  + indicatorPadding * (distanceFromPage * 2)
+        var newFrame = CGRect(x: 0,
+                              y: activeLayer.frame.origin.y,
+                              width: width, //indicatorDiameter * widthMultiplier,
+                              height: indicatorDiameter)
         newFrame.origin.x = denormalizedProgress
-        newFrame.size.width = newFrame.height * widthMultiplier
+        activeLayer.cornerRadius = indicatorRadius
         activeLayer.frame = newFrame
     }
     
     fileprivate func layoutInactivePageIndicators(_ layers: [CALayer]) {
-        let layerDiameter = indicatorRadius * 2
-        var layerFrame = CGRect(x: 0, y: 0, width: layerDiameter, height: layerDiameter)
+        var layerFrame = CGRect(x: 0, y: 0, width: indicatorDiameter, height: indicatorDiameter)
         layers.forEach() { layer in
-            layer.cornerRadius = self.indicatorRadius
+            layer.cornerRadius = indicatorRadius
             layer.frame = layerFrame
-            layerFrame.origin.x += layerDiameter + indicatorPadding
+            layerFrame.origin.x += indicatorDiameter + indicatorPadding
         }
     }
     
