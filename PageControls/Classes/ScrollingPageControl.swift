@@ -113,7 +113,7 @@ import UIKit
     }()
     fileprivate lazy var inactiveLayerMask: CAShapeLayer = { [unowned self] in
         let layer = CAShapeLayer()
-        layer.fillRule = kCAFillRuleEvenOdd
+        layer.fillRule = CAShapeLayerFillRule.evenOdd
         layer.frame = CGRect(origin: CGPoint.zero,
                              size: CGSize(width: self.ringDiameter, height: self.ringDiameter))
         layer.actions = [
