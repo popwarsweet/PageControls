@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PageControls'
-  s.version          = '1.1'
+  s.version          = '1.1.1'
   s.summary          = 'A selection of custom PageControls.'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ This is a selection of custom page controls to replace UIPageControl, inspired b
   s.source           = { :git => 'https://github.com/popwarsweet/PageControls.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '12.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'PageControls/Classes/**/*'
 
